@@ -24,5 +24,11 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/jsx-no-target-blank': 'off',
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['@/features/*/*'],
+      },
+    ],
   },
 }
