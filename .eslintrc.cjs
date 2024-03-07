@@ -30,5 +30,6 @@ module.exports = {
         patterns: ['@/features/*/*'],
       },
     ],
+    'react/prop-types': 0,
   },
 }
