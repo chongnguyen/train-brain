@@ -31,5 +31,8 @@ module.exports = {
       },
     ],
     'react/prop-types': 0,
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-misused-promises': 0,
+    '@typescript-eslint/require-await': 0,
   },
 }

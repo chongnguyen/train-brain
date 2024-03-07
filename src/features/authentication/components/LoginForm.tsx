@@ -1,12 +1,30 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '@/providers'
+import { FormEvent, useState } from 'react'
 
 export const LoginForm = () => {
+  const navigate = useNavigate()
+  const auth = useAuth()
+
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    if (auth) {
+      const res = await auth.loginFn(email, password)
+      if (res.user) {
+        navigate('/')
+      }
+    }
+  }
+
   return (
     <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form
         noValidate={false}
-        action=""
+        onSubmit={(e) => handleSubmit(e)}
         className="space-y-6"
         data-bitwarden-watching="1"
       >
@@ -15,6 +33,10 @@ export const LoginForm = () => {
             Username
           </label>
           <input
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
             type="text"
             name="username"
             id="username"
@@ -28,6 +50,10 @@ export const LoginForm = () => {
           </label>
           <input
             type="password"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value)
+            }}
             name="password"
             id="password"
             placeholder="Password"

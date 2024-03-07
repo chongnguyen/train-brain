@@ -1,5 +1,5 @@
 import './App.css'
-import { AppProvider } from './providers/app.tsx'
+import { AppProvider } from './providers'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routes'
 

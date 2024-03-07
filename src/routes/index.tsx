@@ -1,11 +1,23 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom'
 import { authenticationRoutes } from '@/features/authentication'
 import { miscRoutes } from '@/features/misc'
+import { MainLayout, ProtectedRoute } from '@/components'
+import { examRoutes } from '@/features/exam'
+import { profileRoutes } from '@/features/profile'
+import { aboutRoutes } from '@/features/about'
+import { forumRoutes } from '@/features/forum'
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Hello world!</div>,
+    element: <ProtectedRoute />,
+    children: [
+      {
+        path: '/',
+        element: <MainLayout />,
+        children: [examRoutes, profileRoutes, forumRoutes, aboutRoutes],
+      },
+    ],
   },
   { ...authenticationRoutes },
   { ...miscRoutes },
