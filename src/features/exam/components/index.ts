@@ -1,1 +1,6 @@
 export * from './Layout.tsx'
+export * from './Exam.tsx'
+export * from './Operator.tsx'
+export * from './Expression.tsx'
+export * from './ResultInput.tsx'
+export * from './ListResult.tsx'

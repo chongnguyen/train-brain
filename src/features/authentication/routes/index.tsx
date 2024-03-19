@@ -1,7 +1,7 @@
 import { redirect, RouteObject } from 'react-router-dom'
 import { Layout, LoginForm, RegisterForm } from '../components'
 
-export const authenticationRoutes: RouteObject = {
+export const authRoutes: RouteObject = {
   path: '/auth',
   element: <Layout />,
   children: [

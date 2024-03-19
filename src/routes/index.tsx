@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouteObject } from 'react-router-dom'
-import { authenticationRoutes } from '@/features/authentication'
+import { authRoutes } from '@/features/authentication'
 import { miscRoutes } from '@/features/misc'
 import { MainLayout, ProtectedRoute } from '@/components'
 import { examRoutes } from '@/features/exam'
@@ -19,6 +19,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  { ...authenticationRoutes },
+  { ...authRoutes },
   { ...miscRoutes },
 ] as RouteObject[])

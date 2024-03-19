@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     if (foundToken) {
       void getMe(foundToken).then((data) => setUser(data))
     }
-  }, [])
+  }, [foundToken])
 
   return (
     <AuthContext.Provider
